@@ -22,11 +22,16 @@ window.onload = function() {
   function commandShare() {
     if (navigator.share) {
       alert('navigator.share');
-      navigator.share({
-        title: 'no title',
-        text: document.title,
-        url: location.href
-      });
+      navigator
+        .share({
+          title: 'no title',
+          text: document.title,
+          url: location.href
+        })
+        .then(function() {})
+        .catch(function(err) {
+          alert(err);
+        });
       return;
     }
     alert('mailto');
