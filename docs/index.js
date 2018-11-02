@@ -21,6 +21,7 @@ window.onload = function() {
 
   function commandShare() {
     if (navigator.share) {
+      alert('navigator.share');
       navigator.share({
         title: 'no title',
         text: document.title,
@@ -28,6 +29,7 @@ window.onload = function() {
       });
       return;
     }
+    alert('mailto');
     location.href =
       'mailto:?subject=' +
       encodeURIComponent(document.title) +
@@ -39,7 +41,7 @@ window.onload = function() {
     context.fillStyle = 'black';
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = 'white';
-    paintButton('Shape', shareButtonRect);
+    paintButton('Share', shareButtonRect);
   }
 
   function paintButton(text, rect) {
